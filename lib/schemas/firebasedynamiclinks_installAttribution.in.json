@@ -1,0 +1,131 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request for iSDK to execute strong match flow for post-install attribution.\nThis is meant for iOS requests only. Requests from other platforms will\nnot be honored.",
+            "properties": {
+                "appInstallationTime": {
+                    "description": "App installation epoch time (https://en.wikipedia.org/wiki/Unix_time).\nThis is a client signal for a more accurate weak match.",
+                    "format": "int64",
+                    "type": "string"
+                },
+                "bundleId": {
+                    "description": "APP bundle ID.",
+                    "type": "string"
+                },
+                "device": {
+                    "description": "Device information.",
+                    "properties": {
+                        "deviceModelName": {
+                            "description": "Device model name.",
+                            "type": "string"
+                        },
+                        "languageCode": {
+                            "description": "Device language code setting.",
+                            "type": "string"
+                        },
+                        "languageCodeFromWebview": {
+                            "description": "Device language code setting obtained by executing JavaScript code in\nWebView.",
+                            "type": "string"
+                        },
+                        "languageCodeRaw": {
+                            "description": "Device language code raw setting.\niOS does returns language code in different format than iOS WebView.\nFor example WebView returns en_US, but iOS returns en-US.\nField below will return raw value returned by iOS.",
+                            "type": "string"
+                        },
+                        "screenResolutionHeight": {
+                            "description": "Device display resolution height.",
+                            "format": "int64",
+                            "type": "string"
+                        },
+                        "screenResolutionWidth": {
+                            "description": "Device display resolution width.",
+                            "format": "int64",
+                            "type": "string"
+                        },
+                        "timezone": {
+                            "description": "Device timezone setting.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "iosVersion": {
+                    "description": "iOS version, ie: 9.3.5.\nConsider adding \"build\".",
+                    "type": "string"
+                },
+                "retrievalMethod": {
+                    "description": "App post install attribution retrieval information. Disambiguates\nmechanism (iSDK or developer invoked) to retrieve payload from\nclicked link.",
+                    "enum": [
+                        "UNKNOWN_PAYLOAD_RETRIEVAL_METHOD",
+                        "IMPLICIT_WEAK_MATCH",
+                        "EXPLICIT_WEAK_MATCH",
+                        "EXPLICIT_STRONG_AFTER_WEAK_MATCH"
+                    ],
+                    "type": "string"
+                },
+                "sdkVersion": {
+                    "description": "Google SDK version. Version takes the form \"$major.$minor.$patch\"",
+                    "type": "string"
+                },
+                "uniqueMatchLinkToCheck": {
+                    "description": "Possible unique matched link that server need to check before performing\nfingerprint match. If passed link is short server need to expand the link.\nIf link is long server need to vslidate the link.",
+                    "type": "string"
+                },
+                "visualStyle": {
+                    "description": "Strong match page information. Disambiguates between default UI and\ncustom page to present when strong match succeeds/fails to find cookie.",
+                    "enum": [
+                        "UNKNOWN_VISUAL_STYLE",
+                        "DEFAULT_STYLE",
+                        "CUSTOM_STYLE"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "__xgafv": {
+            "type": "string",
+            "enum": [
+                "1",
+                "2"
+            ]
+        }
+    }
+}

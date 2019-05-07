@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request for iSDK to get reopen attribution for app universal link open\ndeeplinking. This endpoint is meant for only iOS requests.",
+            "properties": {
+                "bundleId": {
+                    "description": "APP bundle ID.",
+                    "type": "string"
+                },
+                "requestedLink": {
+                    "description": "FDL link to be verified from an app universal link open.\nThe FDL link can be one of:\n1) short FDL.\ne.g. <app_code>.page.link/<ddl_id>, or\n2) long FDL.\ne.g. <app_code>.page.link/?{query params}, or\n3) Invite FDL.\ne.g. <app_code>.page.link/i/<invite_id_or_alias>",
+                    "type": "string"
+                },
+                "sdkVersion": {
+                    "description": "Google SDK version. Version takes the form \"$major.$minor.$patch\"",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "__xgafv": {
+            "type": "string",
+            "enum": [
+                "1",
+                "2"
+            ]
+        }
+    }
+}
